@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+const figlet = require('figlet');
+const gradient = require('gradient-string');
+
+const header = figlet.textSync('marionette', 'Larry 3D 2');
+console.log(gradient['atlas'](header))
+
+require('@oclif/command').run()
+.then(require('@oclif/command/flush'))
+.catch(require('@oclif/errors/handle'))

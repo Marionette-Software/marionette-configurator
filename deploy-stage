@@ -1,0 +1,8 @@
+#!/bin/bash 
+sudo -i
+cd /root/marionette 
+git pull 
+./m render-config 
+docker-compose pull
+docker-compose up -d --remove-orphans
+docker-compose restart monitoring

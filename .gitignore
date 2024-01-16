@@ -1,0 +1,14 @@
+config/*
+email_templates/*
+compose/*
+.env
+
+!**/.gitkeep
+
+data/*
+
+# global/config.yaml
+
+.idea/
+
+.DS_Store

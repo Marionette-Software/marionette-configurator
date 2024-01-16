@@ -1,0 +1,119 @@
+{
+  "name": "marionette",
+  "description": "Tunex Marionette config tool",
+  "version": "1.0.3-480-gea90253",
+  "author": "Serhii Savchenko",
+  "bin": {
+    "marionette": "./bin/run"
+  },
+  "bugs": "https://github.com/marionette/issues",
+  "dependencies": {
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "@oclif/plugin-autocomplete": "^0.3.0",
+    "@oclif/plugin-help": "^3.2.3",
+    "@oclif/plugin-not-found": "^1.2.4",
+    "base-64": "^1.0.0",
+    "chalk": "^4.1.2",
+    "figlet": "^1.5.2",
+    "gradient-string": "^1.2.0",
+    "handlebars": "^4.7.7",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.26.0",
+    "eslint": "^7.32.0",
+    "eslint-config-oclif": "^3.1.0",
+    "globby": "^11.0.4",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.1",
+    "@semantic-release/gitlab": "^6.2.2",
+    "semantic-release": "^17.4.7"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "marionette",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-not-found",
+      "@oclif/plugin-autocomplete"
+    ]
+  },
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint .",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "#oclif-dev readme && git add README.md"
+  },
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "develop",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "eslint",
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES",
+              "BREAKING"
+            ]
+          }
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "eslint",
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES",
+              "BREAKING"
+            ]
+          },
+          "writerOpts": {
+            "commitsSort": [
+              "subject",
+              "scope"
+            ]
+          }
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json",
+            "CHANGELOG.md"
+          ]
+        }
+      ],
+      "@semantic-release/gitlab"
+    ]
+  }
+}

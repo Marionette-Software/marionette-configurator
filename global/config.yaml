@@ -1,0 +1,237 @@
+project_name: MARIONETTE_DEMO # change to client
+base_url: marionette.localhost # change to client; it needs to be marionette.localhost if localhost_run=true
+company_name: "LTD Company" # change to client
+localhost_run: true
+logo: "/logo.png"
+support_email: qa@tunex.io # change to client
+mode: compose # swarm
+log_level: "info"
+production: 0
+rate_source_timeout: 300000
+no_phone_verification: 1
+loginCaptcha: false
+database:
+  image: mysql:8.0.32
+  type: mysql
+  host: db # change for external
+  port: 3306 # 5432
+  user: root
+  database: marionette
+  password: theSTRONGpassword
+influxdb:
+  image: influxdb:1.8
+  database: marionette
+messages:
+  mail:
+    ## if type: SendGrid uncomment next rows and put actual credentials:
+    # type: SendGrid
+    # user: apikey
+    # password: changeme
+    # from: qa@tunex.io
+
+    ## if type: AWS uncomment next 5 rows and put actual credentials:
+    # type: AWS
+    # region: us-west-2
+    # ses_user_access_key: changeme
+    # ses_secret_access_key: changeme
+    # from: qa@tunex.io
+
+  sms:
+    ## uncomment and change to actual data next 4 rows if type: AWS
+    # type: AWS
+    # region: us-west-2
+    # sns_user_access_key: changeme
+    # sns_secret_access_key: changeme
+
+    ## uncomment and change to actual data next 4 rows if type: twilio
+    # type: twilio
+    # phone_number: "+11111111111" # change to actual
+    # account_sid: changeme
+    # auth_token: changeme
+
+storage:
+  ##uncomment for the GCP storage
+  #type: GOOGLE
+  #bucketName: kycBucket
+
+  ##uncomment for the AWS storage
+  # type: AWS
+  # bucketName: kycBucket
+  # region: us-east-1
+  # accessKey: changeme
+  # secretKey: changeme
+
+  ##uncomment for the DO storage
+  type: DO
+  bucketName: DOstorageName
+  endpoint: sfo2.digitaloceanspaces.com
+  accessKey: DOstorageAccessKey
+  secretKey: DOstorageSecretKey
+
+  ##uncomment for the MINIO storage:
+  ##ATTENTION: in case you change  variable 'bucketname'
+  ##you must create new folder with the same name & .gitkeep file inside
+  ##in the folder 'configurator/config' and push it to the repository before
+  ##initial deploy. In other case you'll get error of existance bucket with bucketName
+  # type: MINIO
+  # bucketName: storagebucket
+  # accessKey: admin
+  # secretKey: supersecret
+kyc:
+  document_types: "Passport|Driver License|Utility Bill"
+  document_count: 1 # minimum count of files to upload for check KYC
+auth:
+  token_lifetime: 2592000000 #the time of the user session life
+paths:
+  # path for user from email
+  recovery_password: "/#/controller/accounts/password_reset"
+  verify_email: "/public/verify"
+  # optional:
+  verify_email_success: "/#/accounts/verify/success"
+  verify_email_error: "/#/accounts/verify/error"
+admin_options:
+  NodeRed:
+    enabled: false
+  changingBalance:
+    enabled: true
+    manualPaymentInterfaceId: "MANUAL-PI"
+    bankPaymentInterfaces:
+      - id: "BANK-PI"
+components:
+  # common for all clients
+  nats: nats:2-alpine
+  traefik:
+    image: traefik:v2.3
+    ssl:
+      enabled: true
+      email: qa@tunex.io
+  jaeger:
+    enabled: false
+    image: jaegertracing/all-in-one
+    path: /trace
+  # client specific
+  backend: marionettestack/testdrive:backend
+  userapp:
+    image: marionettestack/testdrive:user-app
+    terms_and_conditions_url: ""
+    custodial_exchange:
+      enabled: true
+    non_custodial_exchange:
+      enabled: false
+  adminPanel: marionettestack/testdrive:admin-panel
+  trading:
+    enabled: true
+    separate_trading_user_account: true
+    default_market: "ETH-USDT"
+  walletconnect:
+    enabled: false
+    wallet_verify_message: "Please, verify"
+  extensions:
+    tradingview:
+      image: marionettestack/testdrive:tradingview
+    proxy:
+      image: marionettestack/testdrive:proxy
+      port: 3000
+    googleAuth:
+      enabled: true
+      image: marionettestack/testdrive:google-auth
+      client_id: googleClientId.apps.googleusercontent.com #must be formed by client!
+      tableprefixmigrate: googleAuth
+# Get api Key on the coinMarketCap (coinmarketcap.com) using Start plan as a minor for the "marketcapRateSource" section
+rateSources:
+  marketcapRateSource:
+    enabled: true
+    id: "coinMarketCap"
+    name: "CoinMarketCap"
+    image: marionettestack/testdrive:coin-market-cap
+    apikey: changeme
+    timeinterval: 3600000
+  manualRateSource:
+    id: "manualRateSource"
+    name: "ManualRateSource"
+    image: marionettestack/testdrive:manual-rate-source
+    tableprefixmigrate: manualRateSource
+    time_interval: 60000
+paymentInterfaces:
+  enabled: true
+  log_level: "info"
+  bitcoin:
+    id: "BITCOIN-PI"
+    enabled: true
+    image: marionettestack/testdrive:utxo-pi
+    title: "BITCOIN TESTNET"
+    subtitle: "BITCOIN testnet"
+    description: "Testnet (0)"
+    logo_url: "https://raw.githubusercontent.com/nsart/coin-logos/master/btc.png"
+    verbose: 0
+    network: testnet
+    rpchost: bitcoind
+    rpcport: 18332
+    rpcuser: admin
+    rpcpassword: password
+    port: 18333
+    explorer_address: "https://live.blockcypher.com/btc-testnet/address/#{address}"
+    explorer_transaction: "https://live.blockcypher.com/btc-testnet/tx/#{txid}"
+    wait_confirmation_timeout: 15000
+    min_confirmations: 6
+    max_request_blocks: 10
+  evm:
+    - id: ETH-MAINNET-PI
+      enabled: true
+      image: marionettestack/testdrive:eth-pi
+      type: RPC
+      projectId: none
+      projectSecret: none
+      network: mainnet
+      chainId: 1
+      title: "ETHEREUM Mainnet"
+      subtitle: "ERC20"
+      description: "Ethereum (1)"
+      explorer_address: "https://etherscan.io/address/#{address}"
+      explorer_transaction: "https://etherscan.io/tx/#{txid}"
+      url: "https://chainstackNodeUrl"
+      verbose: 0
+      wait_confirmation_timeout: 7000
+      min_confirmations: 6
+      max_request_blocks: 15
+    - id: BSC-TESTNET-PI
+      enabled: false
+      service_image: marionettestack/testdrive:eth-pi
+      type: RPC
+      projectId: none
+      projectSecret: none
+      network: 97 #56  ##-for the mainnet
+      chainId: 97
+      cryptonode_image: none
+      title: "Binance Smart Chain testnet"
+      subtitle: "BEP20"
+      description: "Testnet (97)"
+      explorer_address: "https://testnet.bscscan.com/address/#{address}"
+      explorer_transaction: "https://testnet.bscscan.com/tx/#{txid}"
+      url: "https://nd-821-519-328.p2pify.com/01f376ee8c6374b34f3342551b4d839e"
+      verbose: 0
+      wait_confirmation_timeout: 2000
+      min_confirmations: 6
+      max_request_blocks: 3
+  manual:
+    - id: "MANUAL-PI"
+      enabled: true
+      service_image: marionettestack/testdrive:manual-pi
+      title: "MANUAL (ADMIN)"
+      subtitle: "MANUAL (ADMIN)"
+      description: "ADMIN"
+      network: admin
+      explorer_address: "#{address}"
+      explorer_transaction: "#{txid}"
+      invoice_based: 0
+      verbose: 0
+  bank:
+    id: BANK-PI
+    enabled: false
+    image: marionettestack/testdrive:bank-pi
+    title: "Fiat Bank"
+    subtitle: "Fiat bank"
+    description: ""
+    chainId: -1
+    ref_no_count: 10
+    ref_no_label: "Referral No."
