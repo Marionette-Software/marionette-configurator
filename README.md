@@ -4,7 +4,7 @@
 
 #### Contact Licensor: e-mails: admin@tunex.io / humans@marionette.dev / website: https://marionette.dev/
 
-# Marionette Configurator
+## Marionette Configurator
 
 **Marionette Configurator** - is a toolset for generate deployment configuration
 
@@ -14,11 +14,11 @@
 
 - User's configuration file `global/config.yaml`
 - Handlebars templates
-- NodeJS CLI tool `m` that generate deployment configuration
+- NodeJS CLI tool `m` that generates deployment configuration
 
 ## Get Stated
 
-Please read full guideline of configuration process from scratch in our official [documentation](https://tunex.atlassian.net/wiki/x/AYBcAg)
+Please read full guideline of configuration process from scratch on our official portal with [documentation](https://tunex.atlassian.net/wiki/x/AYBcAg)
 
 Start in 5 rows:
 
