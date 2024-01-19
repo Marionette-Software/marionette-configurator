@@ -3,3 +3,29 @@
 #### License Agreement: [Read here](https://github.com/Marionette-Software/marionette-configurator/tree/main?tab=License-1-ov-file#tunex-llc-marionette-software-creative-commons-cc-by-nc-nd-40-international-public-license)
 
 #### Contact Licensor: e-mails: admin@tunex.io / humans@marionette.dev / website: https://marionette.dev/
+
+# Marionette Configurator
+
+**Marionette Configurator** - is a toolset for generate deployment configuration
+
+![Marionette Configurator Diargam](docs/diagram.drawio.svg)
+
+## Inside
+
+- User's configuration file `global/config.yaml`
+- Handlebars templates
+- NodeJS CLI tool `m` that generate deployment configuration
+
+## Get Stated
+
+Please read full guideline of configuration process from scratch in our official [documentation](https://tunex.atlassian.net/wiki/x/AYBcAg)
+
+Start in 5 rows:
+
+```shell
+nvm use 20
+npm install --global yarn
+(cd tool && yarn install)
+./m render-config
+docker compose up
+```
