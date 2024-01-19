@@ -1,0 +1,3 @@
+*.js.t linguist-language=js
+*.json.t linguist-language=json
+*.yaml.t linguist-language=yaml
