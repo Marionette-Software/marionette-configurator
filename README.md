@@ -24,8 +24,8 @@ Start in 5 rows:
 
 ```shell
 nvm use 20
-npm install --global yarn
-(cd tool && yarn install)
+(cd tool && npm install)
+# ... setup your values in global/config.yaml ...
 ./m render-config
 docker compose up
 ```

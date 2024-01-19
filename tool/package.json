@@ -1,12 +1,16 @@
 {
-  "name": "marionette",
+  "name": "@marionette/configurator",
   "description": "Tunex Marionette config tool",
-  "version": "1.0.3-480-gea90253",
-  "author": "Serhii Savchenko",
+  "version": "1.0.0",
+	"author": "Marionette Dev Team <dev@marionette.dev> (https://marionette.dev/)",
+	"contributors": [
+    "Max Anurin <max@marionette.dev>",
+    "Serhii Savchenko"
+	],
   "bin": {
     "marionette": "./bin/run"
   },
-  "bugs": "https://github.com/marionette/issues",
+  "bugs": "https://github.com/Marionette-Software/marionette-configurator/issues",
   "dependencies": {
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
