@@ -6,7 +6,7 @@
 
 ## Marionette Configurator
 
-**Marionette Configurator** - is a toolset for generate deployment configuration
+**Marionette Configurator** - is a toolset to generate deployment configuration
 
 ![Marionette Configurator Diargam](docs/diagram.drawio.svg)
 
