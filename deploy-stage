@@ -1,6 +1,6 @@
 #!/bin/bash 
 sudo -i
-cd /root/marionette 
+cd /root/marionette-configurator
 git pull 
 ./m render-config 
 docker-compose pull

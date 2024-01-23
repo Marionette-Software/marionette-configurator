@@ -1,2 +1,2 @@
 COMPOSE_PROJECT_NAME=marionette
-COMPOSE_FILE=compose/required.yaml:compose/backend.yaml:compose/ratesources.yaml:compose/frontend.yaml:compose/extensions.yaml{{#if payment_interfaces.enabled}}:compose/paymentinterfaces.yaml{{/if}}
+COMPOSE_FILE=compose/required.yaml:compose/backend.yaml:compose/ratesources.yaml:compose/frontend.yaml:compose/extensions.yaml{{#if paymentInterfaces.enabled}}:compose/paymentinterfaces.yaml{{/if}}

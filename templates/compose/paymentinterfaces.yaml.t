@@ -34,7 +34,7 @@ services:
 {{#each paymentInterfaces.evm}}
 {{#if enabled}}
   {{id}}:
-    image: {{service_image}}
+    image: {{image}}
     hostname: {{id}}
     restart: always
     command: npm start

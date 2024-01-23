@@ -18,13 +18,13 @@ Using the _Clone_ button (see image below) copy HTTPS or SSH url to be used in a
 Run the clone command:
 
 ```bash
-git clone --branch local-deployment https://gitlab.tunex.io/testdrive/configurator.git marionette
+git clone git@github.com:Marionette-Software/marionette-configurator.git
 ```
 
 Move to the project's root folder
 
 ```bash
-cd marionette
+cd marionette-configurator
 ```
 
 ## Prepare Tool command line utility
@@ -57,7 +57,7 @@ You may get something like:
 
 Two files: key.pem and public.pem will be creted in the secrets folder.
 
-Return to the "marionette" folder
+Return to the "marionette-configurator" folder
 
 ```
 cd ../..
@@ -81,7 +81,7 @@ mkcert -install
 cd config
 mkdir local-certs
 cd local-certs
-mkcert -cert-file local-cert.pem -key-file local-key.pem "marionette.localhost" "*.marionette.localhost"
+mkcert -cert-file local-cert.pem -key-file local-key.pem "test.marionette.dev" "*.test.marionette.dev"
 ls -la
 ```
 
@@ -92,7 +92,7 @@ Two files will be created: local-cert.pem local-key.pem
 File: _*global/config.yaml*_
 
 ```
-base_url: marionette.localhost
+base_url: test.marionette.dev
 localhost_run: true
 loginCaptcha: false
 components.traefik.ssl.enabled: true
@@ -101,7 +101,7 @@ components.traefik.ssl.enabled: true
 ## Render config
 
 ```
-# Return to the "marionette" folder if you not there
+# Return to the "marionette-configurator" folder if you not there
 cd ../..
 
 # execute render-config
@@ -128,12 +128,12 @@ docker-compose up -d
 
 Open the URLs below and check that they are working
 
-Frontend: https://marionette.localhost/
+Frontend: https://test.marionette.dev/
 
-Admin: https://marionette.localhost/admin
+Admin: https://test.marionette.dev/admin
 
 ## Valuable resources
 
 [Details about mkcert tool and how to install it on different platforms.](https://github.com/FiloSottile/mkcert)
 
-[If you need to generate SSL certificate for domain other than marionette.localhost, follow by the link](https://github.com/Heziode/traefik-v2-https-ssl-localhost/tree/master).
+[If you need to generate SSL certificate for domain other than test.marionette.dev, follow by the link](https://github.com/Heziode/traefik-v2-https-ssl-localhost/tree/master).

@@ -107,13 +107,13 @@ services:
             - "traefik.http.middlewares.secureheaders.headers.customFrameOptionsValue='sameorigin'"
             - "traefik.http.middlewares.secureheaders.headers.stspreload=true"
             - "traefik.http.middlewares.secureheaders.headers.stsseconds=31536000"
-            - "traefik.http.middlewares.secureheaders.headers.stsincludesubdomains=true"                
+            - "traefik.http.middlewares.secureheaders.headers.stsincludesubdomains=true"
             - "traefik.http.middlewares.secureheaders.headers.contenttypenosniff=true"
-            - "traefik.http.middlewares.secureheaders.headers.accesscontrolallowmethods=GET,POST,PUT,PATCH,DELETE,OPTIONS,UPGRADE"            
+            - "traefik.http.middlewares.secureheaders.headers.accesscontrolallowmethods=GET,POST,PUT,PATCH,DELETE,OPTIONS,UPGRADE"
             - "traefik.http.middlewares.secureheaders.headers.accesscontrolalloworiginlist={{#if components.traefik.ssl.enabled}}https{{else}}http{{/if}}://{{base_url}}"
             - "traefik.http.middlewares.secureheaders.headers.accesscontrolmaxage=3600"
             - "traefik.http.middlewares.secureheaders.headers.addvaryheader=true"
-            - "traefik.http.middlewares.secureheaders.headers.contentsecuritypolicy=default-src data: blob: 'self' https://accounts.google.com https://apis.google.com 'unsafe-inline' 'unsafe-eval'; script-src data: blob: 'self' https://accounts.google.com https://apis.google.com 'unsafe-inline' 'unsafe-eval';"
+            - "traefik.http.middlewares.secureheaders.headers.contentsecuritypolicy=default-src data: blob: 'self' https://fonts.gstatic.com https://accounts.google.com https://apis.google.com https://www.gstatic.com 'unsafe-inline' 'unsafe-eval'; script-src data: blob: 'self' https://accounts.google.com https://apis.google.com https://www.gstatic.com 'unsafe-inline' 'unsafe-eval';"
             - "traefik.http.middlewares.secureheaders.headers.referrerpolicy=origin-when-cross-origin"
     {{/if}}
     {{/ifEquals}}

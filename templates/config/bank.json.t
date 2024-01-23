@@ -1,9 +1,9 @@
 {
-  "id": "{{payment_interfaces.bank.id}}",
-  "title": "{{payment_interfaces.bank.title}}",
-  "subtitle": "{{payment_interfaces.bank.subtitle}}",
+  "id": "{{paymentInterfaces.bank.id}}",
+  "title": "{{paymentInterfaces.bank.title}}",
+  "subtitle": "{{paymentInterfaces.bank.subtitle}}",
   "description": "",
-  "chainId": {{payment_interfaces.bank.chainId}},
+  "chainId": {{paymentInterfaces.bank.chainId}},
   "depositData": {
     "EUR": {
       "Recipient": "EXCHANGE",
