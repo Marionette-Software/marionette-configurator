@@ -4,6 +4,8 @@
 
 #### Contact Licensor: e-mails: admin@tunex.io / humans@marionette.dev / website: https://marionette.dev/
 
+#### More information about GitHub release VS Commercial License: https://marionette.dev/test-drive/
+
 ## Marionette Configurator
 
 **Marionette Configurator** - is a toolset to generate deployment configuration
