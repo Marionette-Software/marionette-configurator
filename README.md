@@ -5,7 +5,7 @@
 #### Contact Licensor: 
 #### E-mails: admin@tunex.io / humans@marionette.dev // Website: https://marionette.dev/
 
-#### More information about GitHub release VS Commercial License: https://marionette.dev/test-drive/
+#### More information about GitHub Release VS Commercial License: https://marionette.dev/test-drive/
 
 ## Marionette Configurator
 
