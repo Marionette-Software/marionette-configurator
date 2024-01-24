@@ -2,7 +2,8 @@
 
 #### License Agreement: [Read here](https://github.com/Marionette-Software/marionette-configurator/tree/main?tab=License-1-ov-file#tunex-llc-marionette-software-creative-commons-cc-by-nc-nd-40-international-public-license)
 
-#### Contact Licensor: e-mails: admin@tunex.io / humans@marionette.dev / website: https://marionette.dev/
+#### Contact Licensor: 
+#### e-mails: admin@tunex.io / humans@marionette.dev / website: https://marionette.dev/
 
 #### More information about GitHub release VS Commercial License: https://marionette.dev/test-drive/
 
