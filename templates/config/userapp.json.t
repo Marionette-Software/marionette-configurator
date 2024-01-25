@@ -6,18 +6,19 @@
     "enabled": {{components.extensions.googleAuth.enabled}},
     "client_id": "{{components.extensions.googleAuth.client_id}}"
   },
-  "withInstantBuySell": true, 
-  "withTradingBalance": {{components.trading.separate_trading_user_account}},
-  "enabled_trading_page": {{components.trading.enabled}},
-  "enabled_wallet_page": true,
-  "enabled_non_custodial_exchange_page": {{components.userapp.non_custodial_exchange.enabled}},
-  "enabled_pro_swap_page": false,
-  "enabled_non_custodial_wallet_connect": {{components.walletconnect.enabled}},
+
   "enabledBuySell": true,
-  "enabledStaking": false,
+  "enabledLoginCaptcha": {{#if login_captcha}}true{{else}}false{{/if}},
   "enabledPhoneVerificationStep": {{#ifEquals no_phone_verification 1}}false{{else}}true{{/ifEquals}},
   "enabledReferrals": false,
-  "enabledLoginCaptcha": {{#if login_captcha}}true{{else}}false{{/if}},
-  "orderBookMiddle":  true,
-  "enabledSpread": true
+  "enabledSellWithdrawZeroBalance": true,
+  "enabledSpread": true,
+  "enabledStaking": false,
+  "enabled_non_custodial_exchange_page": {{components.userapp.non_custodial_exchange.enabled}},
+  "enabled_non_custodial_wallet_connect": {{components.walletconnect.enabled}},
+  "enabled_trading_page": {{components.trading.enabled}},
+  "enabled_wallet_page": true,
+  "withInstantBuy": true,
+  "withInstantSell": true,
+  "withTradingBalance": {{components.trading.separate_trading_user_account}}
 }

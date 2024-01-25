@@ -72,6 +72,8 @@ services:
     proxy:
         restart: always
         image: {{components.extensions.proxy.image}}
+        env_file:
+            - ../config/storage.env
         environment:
             PORT: {{components.extensions.proxy.port}}
     {{#ifEquals mode "swarm"}}
@@ -83,7 +85,7 @@ services:
                 - "traefik.http.routers.proxy.middlewares=test-replacepathregex"
                 - "traefik.http.middlewares.test-replacepathregex.replacepathregex.regex=^/proxy(.*)"
                 - "traefik.http.middlewares.test-replacepathregex.replacepathregex.replacement=/$$1"
-                {{#if components.traefik.ssl.enabled}}
+                {{#if components.traefik.ssl}}
                 - "traefik.http.routers.proxy.entrypoints=websecure"
                 - "traefik.http.routers.proxy.tls=true"
                 - "traefik.http.routers.proxy.tls.certresolver=myresolver"
@@ -99,7 +101,7 @@ services:
             - "traefik.http.routers.proxy.middlewares=test-replacepathregex"
             - "traefik.http.middlewares.test-replacepathregex.replacepathregex.regex=^/proxy(.*)"
             - "traefik.http.middlewares.test-replacepathregex.replacepathregex.replacement=/$$1"
-            {{#if components.traefik.ssl.enabled}}
+            {{#if components.traefik.ssl}}
             - "traefik.http.routers.proxy.entrypoints=websecure"
             - "traefik.http.routers.proxy.tls=true"
             - "traefik.http.routers.proxy.tls.certresolver=myresolver"

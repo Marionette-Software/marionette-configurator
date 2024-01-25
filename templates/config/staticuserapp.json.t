@@ -1,4 +1,3 @@
-
 {
   "url": "{{base_url}}",
   "terms_and_conditions_url": "{{components.userapp.terms_and_conditions_url}}",
