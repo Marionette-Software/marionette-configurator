@@ -25,7 +25,7 @@ services:
     image: {{rateSources.marketcapRateSource.image}}
     hostname: {{rateSources.marketcapRateSource.id}}
     command: npm start
-    restart: always                
+    restart: always
     environment:
       API_KEY: {{rateSources.marketcapRateSource.apikey}}
       TIMEINTERVAL: {{rateSources.marketcapRateSource.timeinterval}}
