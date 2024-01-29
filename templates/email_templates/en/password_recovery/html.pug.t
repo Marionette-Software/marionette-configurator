@@ -13,27 +13,24 @@ html(lang="en")
 			.bottomTr { border-radius: 0 0 16px 16px; }
 			.divider { margin: 15px; border-top: 1px solid #053f51 }
 			.aroundButton { padding: 30px 0; }
-			.mailto { color: #FFFFFF !important; opacity:100% !important;}
-			.ButtonLink { color: #FFFFFF !important;}
 			.button { width: 70%; padding: 10px; background-color: #A32AFF; color: #ffffff; font-size: 14px; font-weight: bold; text-decoration:none; border-radius: 5px; }
 	body
 		div.padding10
 		div.placement
 			div.height32.bgWhite.topTr &nbsp;
 			div.bgWhite
-				img.image(alt="{{project_name}}" src="{{#if components.traefik.ssl}}https{{else}}http{{/if}}://{{base_url}}/static/{{logo}}")
+				img.image(alt=name src=logo_url)
+				img.image(alt="{{project_name}}" src="{{#if components.traefik.ssl}}https{{else}}http{{/if}}://{{base_url}}/static{{logo}}")
 				div.divider
 				div.padding10 Hello!
-				div.padding10 Welcome to {{company_name}}
+				div.padding10 Welcome to {{project_name}}
 				div.padding10 Use this unique link to recovery password
 			div.bgWhite
 				div.aroundButton
-					a.button(href=url)
-						span.ButtonLink Recover
+					a.button(href=url) Recovery
 			div.bgColor
 				div.padding10 &nbsp;
-				div.padding10 Email: 
-					a.mailto(href="mailto:{{support_email}}") {{support_email}}
-				div.padding10 © Copyright 2023 {{company_name}} | All Rights Reserved
+				div.padding10 Email: {{support_email}}
+				div.padding10 © Copyright 2024 {{company_name}} | All Rights Reserved
 			div.height32.bgColor.bottomTr &nbsp;
 		div.padding10
