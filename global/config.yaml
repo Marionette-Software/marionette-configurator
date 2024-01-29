@@ -1,4 +1,4 @@
-project_name: MARIONETTE_DEMO # change to client
+project_name: MARIONETTE_LOCAL # change to client
 base_url: marionette.localhost # change to client; it needs to be marionette.localhost if localhost_run=true
 company_name: "LTD Company" # change to client
 localhost_run: true
@@ -71,7 +71,7 @@ storage:
   ##uncomment for the MINIO storage:
   ##ATTENTION: in case you change  variable 'bucketname'
   ##you must create new folder with the same name & .gitkeep file inside
-  ##in the folder 'configurator/config' and push it to the repository before
+  ##in the folder 'configurator/config' and push it to the repository before 
   ##initial deploy. In other case you'll get error of existance bucket with bucketName
   # type: MINIO
   # bucketName: storagebucket
@@ -121,7 +121,7 @@ components:
   adminPanel: marionettestack/testdrive:admin-panel
   trading:
     enabled: true
-    separate_trading_user_account: true
+    separate_trading_user_account: false
     default_market: "ETH-USDT"
   walletconnect:
     enabled: false
@@ -133,14 +133,14 @@ components:
       image: marionettestack/testdrive:proxy
       port: 3000
     googleAuth:
-      enabled: true
+      enabled: false
       image: marionettestack/testdrive:google-auth
       client_id: googleClientId.apps.googleusercontent.com #must be formed by client!
       tableprefixmigrate: googleAuth
 # Get api Key on the coinMarketCap (coinmarketcap.com) using Start plan as a minor for the "marketcapRateSource" section
 rateSources:
   marketcapRateSource:
-    enabled: true
+    enabled: false
     id: "coinMarketCap"
     name: "CoinMarketCap"
     image: marionettestack/testdrive:coin-market-cap
@@ -157,8 +157,9 @@ paymentInterfaces:
   log_level: "info"
   bitcoin:
     id: "BITCOIN-PI"
-    enabled: true
+    enabled: false
     image: marionettestack/testdrive:utxo-pi
+    # cryptonode_image: none #gitlab.tunex.io:5050/marionette-stack/public/bitcoind24v:latest
     title: "BITCOIN TESTNET"
     subtitle: "BITCOIN testnet"
     description: "Testnet (0)"
@@ -177,7 +178,7 @@ paymentInterfaces:
     max_request_blocks: 10
   evm:
     - id: ETH-MAINNET-PI
-      enabled: true
+      enabled: false
       image: marionettestack/testdrive:eth-pi
       type: RPC
       projectId: none
@@ -189,34 +190,53 @@ paymentInterfaces:
       description: "Ethereum (1)"
       explorer_address: "https://etherscan.io/address/#{address}"
       explorer_transaction: "https://etherscan.io/tx/#{txid}"
-      url: "https://chainstackNodeUrl"
-      verbose: 0
-      wait_confirmation_timeout: 7000
-      min_confirmations: 6
-      max_request_blocks: 15
-    - id: BSC-TESTNET-PI
+      url: "change_me"
+      # verbose: 0
+      # wait_confirmation_timeout: 7000
+      # min_confirmations: 6
+      # max_request_blocks: 15
+    - id: ETH-GOERLI-PI
       enabled: false
       service_image: marionettestack/testdrive:eth-pi
       type: RPC
       projectId: none
       projectSecret: none
-      network: 97 #56  ##-for the mainnet
-      chainId: 97
+      network: goerli
+      chainId: 5
       cryptonode_image: none
-      title: "Binance Smart Chain testnet"
-      subtitle: "BEP20"
-      description: "Testnet (97)"
-      explorer_address: "https://testnet.bscscan.com/address/#{address}"
-      explorer_transaction: "https://testnet.bscscan.com/tx/#{txid}"
-      url: "https://nd-821-519-328.p2pify.com/01f376ee8c6374b34f3342551b4d839e"
+      title: "Ethereum Göerli testnet"
+      subtitle: "ERC20"
+      description: "Görli (5)"
+      explorer_address: "https://goerli.etherscan.io/address/#{address}"
+      explorer_transaction: "https://goerli.etherscan.io/tx/#{txid}"
+      url: "change_me"
       verbose: 0
-      wait_confirmation_timeout: 2000
+      wait_confirmation_timeout: 6000
       min_confirmations: 6
-      max_request_blocks: 3
+      max_request_blocks: 5
+    - id: ETH-SEPOLIA-PI
+      enabled: false
+      service_image: marionettestack/testdrive:eth-pi
+      type: RPC
+      projectId: none
+      projectSecret: none
+      network: sepolia
+      chainId: 5
+      cryptonode_image: none
+      title: "Ethereum Sepolia Testnet"
+      subtitle: "ERC20"
+      description: "Sepolia (5)"
+      explorer_address: "https://sepolia.etherscan.io/address/#{address}"
+      explorer_transaction: "https://sepolia.etherscan.io/tx/#{txid}"
+      url: "change_me"
+      verbose: 0
+      wait_confirmation_timeout: 6000
+      min_confirmations: 6
+      max_request_blocks: 5
   manual:
     - id: "MANUAL-PI"
       enabled: true
-      service_image: marionettestack/testdrive:manual-pi
+      image: marionettestack/testdrive:manual-pi
       title: "MANUAL (ADMIN)"
       subtitle: "MANUAL (ADMIN)"
       description: "ADMIN"
