@@ -21,7 +21,7 @@
 
 ## Get Stated
 
-Please read full guideline of configuration process from scratch on our official portal with [documentation](https://tunex.atlassian.net/wiki/spaces/MS/pages/39616513/Test+Drive+Deployment+of+Marionette+Software+GitHub+version)
+Please read full guideline of configuration process from scratch on our official portal with [documentation](https://tunex.atlassian.net/wiki/spaces/MS/pages/39616513/)
 
 Start in 5 lines:
 
