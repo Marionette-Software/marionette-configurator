@@ -23,7 +23,7 @@
 
 Please read full guideline of configuration process from scratch on our official portal with [documentation](https://tunex.atlassian.net/wiki/x/AYBcAg)
 
-Start in 5 rows:
+Start in 5 lines:
 
 ```shell
 nvm use 20
