@@ -8,7 +8,7 @@ mode: compose # swarm
 log_level: "info"
 production: 0
 rate_source_timeout: 300000
-no_phone_verification: 1
+no_phone_verification: 0
 loginCaptcha: false
 database:
   image: mysql:8.0.32
@@ -62,21 +62,21 @@ storage:
   # secretKey: changeme
 
   ##uncomment for the DO storage
-  # type: DO
-  # bucketName: DOstorageName
-  # endpoint: sfo2.digitaloceanspaces.com
-  # accessKey: DOstorageAccessKey
-  # secretKey: DOstorageSecretKey
+  type: DO
+  bucketName: DOstorageName
+  endpoint: sfo2.digitaloceanspaces.com
+  accessKey: DOstorageAccessKey
+  secretKey: DOstorageSecretKey
 
   ##uncomment for the MINIO storage:
   ##ATTENTION: in case you change  variable 'bucketname'
   ##you must create new folder with the same name & .gitkeep file inside
   ##in the folder 'configurator/config' and push it to the repository before 
   ##initial deploy. In other case you'll get error of existance bucket with bucketName
-  type: MINIO
-  bucketName: miniobucket
-  accessKey: admin
-  secretKey: supersecret
+  # type: MINIO
+  # bucketName: miniobucket
+  # accessKey: admin
+  # secretKey: supersecret
 kyc:
   document_types: "Passport|Driver License|Utility Bill"
   document_count: 1 # minimum count of files to upload for check KYC
