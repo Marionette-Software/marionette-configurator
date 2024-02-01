@@ -6,7 +6,7 @@ services:
             LOGLEVEL: {{log_level}}
         volumes:
             - ../config/userapp.json:/usr/share/nginx/html/assets/assets/config.json
-            - ../config/userapp.json:/usr/share/nginx/html/assets/config.json
+            - ../config/staticuserapp.json:/usr/share/nginx/html/assets/config.json
 {{#ifEquals mode "swarm"}}      
         deploy:
             labels:
