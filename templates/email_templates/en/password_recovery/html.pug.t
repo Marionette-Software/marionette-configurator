@@ -30,8 +30,9 @@ head(lang="en")
     .button {
     width: 70%;
     padding: 20px 188px;
-    background-color: #FF0034;
+    background-color: #FF4E37;
     color: #ffffff;
+    text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-size: 20px;
     line-height: 24px;
@@ -39,6 +40,9 @@ head(lang="en")
     letter-spacing: -0.05em;
     text-decoration:none;
     border-radius: 9px;
+    }
+    .ButtonLink {
+      color: #FFFFFF !important;
     }
     .ii a[href] {
     color: #EEEEEE;
@@ -54,7 +58,7 @@ head(lang="en")
     {
     width: 600px;
     height: 123px;
-    background-color: #1E0654;
+    background-color: black;
     margin-left: auto;
     margin-right: auto;
     }
@@ -91,6 +95,9 @@ head(lang="en")
     letter-spacing: -0.05em;
     color: #FFFFFF;
     }
+    .opacity50 {
+    opacity: 50%;
+    }
     .email
     {
     font-family: 'Inter', sans-serif;
@@ -101,6 +108,7 @@ head(lang="en")
     text-align: center;
     letter-spacing: -0.05em;
     color: #FF0034;
+    text-decoration: none;
     }
     .useLink
     {
@@ -130,7 +138,7 @@ head(lang="en")
     }
 table.mainData(background='{{#if components.traefik.ssl}}https{{else}}http{{/if}}://{{base_url}}/static/frame_key.png')
   tr
-    td(style='text-align: center;padding-top: 360px;')
+    td(style='text-align: center;padding-top: 280px;')
       <!-- p.textBody Hello!
 
       p.textBody Welcome to {{company_name}} -->
@@ -139,7 +147,8 @@ table.mainData(background='{{#if components.traefik.ssl}}https{{else}}http{{/if}
 
       div.placement
         div.aroundButton
-          a.button(href=url) Reset
+          a.button(href=url)
+            span.ButtonLink Reset
       span.useLink or use this 
       a(href=url)
         span.Link link
@@ -147,5 +156,5 @@ table.footerData
   tr
     td(style='text-align: center; vertical-align: center; padding-top: 25px;')
       span.copyright Support: 
-      span.copyrightWhite <a href='"'{{support_email}}'"' style="color: white">{{support_email}}</a>
-      p.copyrightWhite &copy; Copyright 2024 {{company_name}} | All Rights Reserved 
+      span.copyrightWhite <a href='"'{{support_email}}'"' style="color: white; opacity:100%">{{support_email}}</a>
+      p.copyrightWhite.opacity50 &copy; Copyright 2024 {{company_name}} | All Rights Reserved 
