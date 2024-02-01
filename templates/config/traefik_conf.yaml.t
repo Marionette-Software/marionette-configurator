@@ -1,8 +1,8 @@
 {{#if localhost_run}}
 tls:
   certificates:
-    - certFile: "/etc/certs/local-cert.pem"
-      keyFile: "/etc/certs/local-key.pem"
+    - certFile: "/etc/certs/cert.pem"
+      keyFile: "/etc/certs/key.pem"
 {{else}}
 tls:
   options:
