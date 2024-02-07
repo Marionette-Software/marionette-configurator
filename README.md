@@ -14,7 +14,7 @@
 
 5.1 User App Architecture: https://tunex.atlassian.net/wiki/spaces/ID/pages/4325435/User+App+Architecture
 
-5.2 Configurations for User App: https://tunex.atlassian.net/wiki/spaces/ID/pages/22970398/Configurations+for+User+App
+5.2 Configurations for User App: https://tunex.atlassian.net/wiki/spaces/ID/pages/56950785/Configurations+for+User+App+-+Test+Drive+version+GitHub
 
 5.3 User App Queries, Mutations and Subscriptions: https://tunex.atlassian.net/wiki/spaces/ID/pages/10289175/User+App+Queries+Mutations+and+Subscriptions
 
