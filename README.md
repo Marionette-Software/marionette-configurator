@@ -38,7 +38,7 @@
 
 **More info about Public Test Drive:** https://marionette.dev/test-drive/
 
-**Latest changelog:** https://tunex.atlassian.net/wiki/spaces/ID/pages/65634311/
+**Latest changelog:** https://tunex.atlassian.net/wiki/spaces/ID/pages/76709891/
 
 **Now let's get started!**
 
