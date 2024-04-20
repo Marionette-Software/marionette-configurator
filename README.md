@@ -1,5 +1,7 @@
 #### Welcome to Marionette Software Test Drive Configurator!
 
+![image](https://github.com/Marionette-Software/marionette-configurator/assets/57184189/a1498bb0-89b1-4fc2-84d9-462e4d464a2e)
+
 **Who is Marionette Test Drive for and what can you do with it?**
 
 1. Teams who want to test the core functionality of Marionette Software to see if Marionette is the right fit for their vision/team/project.
