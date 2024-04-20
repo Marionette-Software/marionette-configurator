@@ -22,6 +22,8 @@
 
 6. Teams can introduce their custom plugins and features. From introducing 3rd party services like custom bots, to integrating local banks, payment gateways, liquidity providers, market makers as well as very custom and unique user facing services.
 
+![image](https://github.com/Marionette-Software/marionette-configurator/assets/57184189/ce1e5f1a-496b-4625-9c39-fd0eda0d27d3)
+
 **What are the limitations of Marionette Public Test Drive?**
 
 1. Marionette Public Test Drive release features limited functionality across the full scope of the software, from Admin to Add-on Features to End-User UI. But it is fully compatible and can be upgraded to the full scope and capabilities of Marionette commercially licensed version of the software.
